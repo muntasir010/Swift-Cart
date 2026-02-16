@@ -1,28 +1,30 @@
-function loadSections() {
-  const navbarDiv = document.getElementById("navbar");
-  if (navbarDiv) {
-    fetch("components/navbar.html")
-      .then((response) => {
-        if (response.ok) return response.text();
-        throw new Error("Navbar file not found");
-      })
-      .then((data) => {
-        navbarDiv.innerHTML = data;
-      })
-      .catch((error) => console.error(error));
-  }
+async function loadSections() {
+  try {
+    const navRes = await fetch("components/navbar.html");
+    const navData = await navRes.text();
+    document.getElementById("navbar").innerHTML = navData;
+    
+    setupMobileMenu();
 
-  const heroDiv = document.getElementById("hero");
-  if (heroDiv) {
-    fetch("components/hero.html")
-      .then((response) => {
-        if (response.ok) return response.text();
-        throw new Error("Hero section file not found");
-      })
-      .then((data) => {
-        heroDiv.innerHTML = data;
-      })
-      .catch((error) => console.error(error));
+    const heroRes = await fetch("components/hero.html");
+    document.getElementById("hero").innerHTML = await heroRes.text();
+
+    const featRes = await fetch("components/features.html");
+    document.getElementById("features").innerHTML = await featRes.text();
+
+  } catch (error) {
+    console.error("Loading Error:", error);
+  }
+}
+
+function setupMobileMenu() {
+  const menuBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.onclick = () => {
+      mobileMenu.classList.toggle('hidden');
+    };
   }
 }
 
