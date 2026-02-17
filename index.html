@@ -11,7 +11,10 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
   <body>
     <div id="navbar"></div>
@@ -20,20 +23,39 @@
     <div id="category-container"></div>
 
     <section class="max-w-screen-xl mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold mb-8">Trending Products</h2>
-        
-        <div id="category-container" class="flex flex-wrap justify-center gap-2 mb-10"></div>
+      <h2 class="text-3xl font-bold mb-8">Trending Products</h2>
 
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="col-span-full flex justify-center">
-            </div>
-        </div>
-        <div id="see-all-container" class="flex justify-center mt-10">
-        <button onclick="loadProducts('all', false)" class="btn btn-primary px-8">
-            See All Products
+      <div
+        id="category-container"
+        class="flex flex-wrap justify-center gap-2 mb-10"
+      ></div>
+
+      <div
+        id="product-grid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        <div class="col-span-full flex justify-center"></div>
+      </div>
+      <div id="see-all-container" class="flex justify-center mt-10">
+        <button
+          onclick="loadProducts('all', false)"
+          class="btn btn-primary px-8"
+        >
+          See All Products
         </button>
-    </div>
+      </div>
     </section>
+
+    <dialog id="product_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box max-w-2xl bg-white">
+        <div id="modal-content"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn btn-error">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <div id="footer"></div>
     <script src="scripts/app.js"></script>
