@@ -1,3 +1,12 @@
+let count = parseInt(localStorage.getItem("cartCount")) || 0;
+
+function displayInitialCart() {
+const cartBadge = document.getElementById("cart-count");
+if (cartBadge) {
+cartBadge.innerText = count;
+}
+}
+
 async function loadSections() {
   try {
     const navRes = await fetch("components/navbar.html");
@@ -151,10 +160,14 @@ async function showDetails(id) {
   }
 }
 
-let count = 0;
 function addToCart(id) {
-  count++;
-  document.getElementById("cart-count").innerText = count;
+count++;
+localStorage.setItem("cartCount", count);
+const cartBadge = document.getElementById("cart-count");
+if (cartBadge) {
+cartBadge.innerText = count;
+}
+console.log("Cart Updated! Current Count:", count);
 }
 
 window.onload = async () => {
