@@ -16,13 +16,25 @@
   </head>
   <body>
     <div id="navbar"></div>
-    <button id="menu-toggle" class="md:hidden ...">...</button>
-
-    <div id="mobile-menu" class="hidden w-full md:block md:w-auto ...">
-      <ul class="flex flex-col md:flex-row ..."></ul>
-    </div>
     <div id="hero"></div>
     <div id="features"></div>
+    <div id="category-container"></div>
+
+    <section class="max-w-screen-xl mx-auto px-4 py-12">
+        <h2 class="text-3xl font-bold mb-8">Trending Products</h2>
+        
+        <div id="category-container" class="flex flex-wrap justify-center gap-2 mb-10"></div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="col-span-full flex justify-center">
+            </div>
+        </div>
+        <div id="see-all-container" class="flex justify-center mt-10">
+        <button onclick="loadProducts('all', false)" class="btn btn-primary px-8">
+            See All Products
+        </button>
+    </div>
+    </section>
 
     <script src="scripts/app.js"></script>
   </body>
