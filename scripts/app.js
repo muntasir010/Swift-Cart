@@ -174,4 +174,5 @@ window.onload = async () => {
   await loadSections();
   loadCategories();
   loadProducts();
+  displayInitialCart();
 };
