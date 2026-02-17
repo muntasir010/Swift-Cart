@@ -11,6 +11,11 @@ async function loadSections() {
 
     const featRes = await fetch("components/features.html");
     document.getElementById("features").innerHTML = await featRes.text();
+
+   const footerRes = await fetch("components/footer.html");
+    if (footerRes.ok) {
+        document.getElementById("footer").innerHTML = await footerRes.text();
+    }
   } catch (error) {
     console.error("Loading Error:", error);
   }
@@ -65,7 +70,7 @@ async function loadProducts(category = "all", limit = true) {
     let products = await res.json();
 
     if (limit) {
-      products = products.slice(0, 3);
+      products = products.slice(0, 4);
       if (seeAllBtn) seeAllBtn.classList.remove("hidden");
     } else {
       if (seeAllBtn) seeAllBtn.classList.add("hidden");
